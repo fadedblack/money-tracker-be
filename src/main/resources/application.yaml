@@ -1,3 +1,7 @@
 spring:
   application:
     name: money-tracker
+
+server:
+  servlet:
+    context-path: /money-tracker
