@@ -5,3 +5,7 @@ spring:
 server:
   servlet:
     context-path: /money-tracker
+
+logging:
+  level:
+    com.fadedblack.money_tracker: DEBUG
