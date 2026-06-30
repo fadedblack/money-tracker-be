@@ -1,4 +1,4 @@
-package com.fadedblack.money_tracker;
+package com.money_tracker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

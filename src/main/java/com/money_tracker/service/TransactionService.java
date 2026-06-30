@@ -1,7 +1,7 @@
-package com.fadedblack.money_tracker.service;
+package com.money_tracker.service;
 
-import com.fadedblack.money_tracker.model.Transaction;
-import com.fadedblack.money_tracker.model.TransactionDTO;
+import com.money_tracker.model.Transaction;
+import com.money_tracker.model.TransactionDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

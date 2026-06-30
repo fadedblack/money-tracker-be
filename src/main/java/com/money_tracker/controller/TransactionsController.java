@@ -1,8 +1,8 @@
-package com.fadedblack.money_tracker.controller;
+package com.money_tracker.controller;
 
-import com.fadedblack.money_tracker.model.Transaction;
-import com.fadedblack.money_tracker.model.TransactionDTO;
-import com.fadedblack.money_tracker.service.TransactionService;
+import com.money_tracker.model.Transaction;
+import com.money_tracker.model.TransactionDTO;
+import com.money_tracker.service.TransactionService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +30,7 @@ public class TransactionsController {
         return ResponseEntity.ok(transactionService.getTransactions());
     }
 
-    @PostMapping("/add")
+    @PostMapping()
     @Operation(summary = "Add a new transaction")
     public ResponseEntity<Void> addTransaction(@RequestBody TransactionDTO transaction) {
         log.debug("Transaction add request: {}", transaction);
