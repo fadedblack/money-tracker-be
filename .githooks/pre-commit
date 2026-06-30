@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if grep -q "spotless" ./build.gradle 2>/dev/null; then
+    echo "Running Spotless format check..."
+    ./gradlew spotlessCheck || {
+        echo ""
+        echo "❌ Spotless check failed. Run './gradlew spotlessApply' to auto-fix formatting."
+        exit 1
+    }
+    echo "✅ Formatting looks good."
+else
+    echo "⚠️  Spotless not configured in build.gradle — skipping format check."
+fi
+
+exit 0

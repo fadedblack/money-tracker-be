@@ -1,0 +1,30 @@
+#!/bin/sh
+
+commit_msg_file="$1"
+commit_msg=$(cat "$commit_msg_file")
+
+pattern='^(feat|fix|docs|refactor|chore|test|release)(\([a-zA-Z0-9._/-]+\))?!?: .+'
+
+if ! echo "$commit_msg" | grep -Eq "$pattern"; then
+    echo "❌ Invalid commit message."
+    echo ""
+    echo "Expected format:"
+    echo "  <type>(optional-scope): <description>"
+    echo ""
+    echo "Allowed types:"
+    echo "  feat      – new feature"
+    echo "  fix       – bug fix"
+    echo "  docs      – documentation only"
+    echo "  refactor  – code restructuring, no behaviour change"
+    echo "  chore     – dependencies, config, tooling"
+    echo "  test      – adding or updating tests"
+    echo "  release   – version bump / release prep"
+    echo ""
+    echo "Examples:"
+    echo "  feat: add cors configuration"
+    echo "  fix(transaction): correct from() constructor call"
+    echo "  chore: add spotless plugin"
+    exit 1
+fi
+
+exit 0

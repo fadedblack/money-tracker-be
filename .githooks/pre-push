@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# ── Branch naming ──────────────────────────────────────────────────────────
+branch=$(git symbolic-ref HEAD 2>/dev/null | sed 's|refs/heads/||')
+exempt='^(main|master|develop)$'
+allowed='^(feat|fix|docs|refactor|chore|test|release)/.+'
+
+if ! echo "$branch" | grep -Eq "$exempt"; then
+    if ! echo "$branch" | grep -Eq "$allowed"; then
+        echo "❌ Branch name '$branch' does not follow naming convention."
+        echo ""
+        echo "Expected: <type>/<description>"
+        echo "Allowed types: feat, fix, docs, refactor, chore, test, release"
+        echo ""
+        echo "Examples:"
+        echo "  feat/add-cors-config"
+        echo "  fix/transaction-from-method"
+        echo "  chore/setup-spotless"
+        exit 1
+    fi
+fi
+
+# ── Build ──────────────────────────────────────────────────────────────────
+echo "Running build before push..."
+./gradlew build || {
+    echo ""
+    echo "❌ Build failed. Fix errors before pushing."
+    exit 1
+}
+
+echo "✅ All checks passed."
+exit 0
