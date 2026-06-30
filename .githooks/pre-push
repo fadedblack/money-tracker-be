@@ -2,7 +2,7 @@
 
 # ── Branch naming ──────────────────────────────────────────────────────────
 branch=$(git symbolic-ref HEAD 2>/dev/null | sed 's|refs/heads/||')
-exempt='^(main|master|develop)$'
+exempt='^(main)$'
 allowed='^(feat|fix|docs|refactor|chore|test|release)/.+'
 
 if ! echo "$branch" | grep -Eq "$exempt"; then
