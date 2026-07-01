@@ -8,4 +8,4 @@ server:
 
 logging:
   level:
-    com.fadedblack.money_tracker: DEBUG
+    com.money_tracker: DEBUG

@@ -25,6 +25,7 @@ public class TransactionsController {
   @GetMapping
   @Operation(summary = "Get all transactions")
   public ResponseEntity<List<Transaction>> getTransactions() {
+    log.debug("Get transactions request made");
     return ResponseEntity.ok(transactionService.getTransactions());
   }
 
