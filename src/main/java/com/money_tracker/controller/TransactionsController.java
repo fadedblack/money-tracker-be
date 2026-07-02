@@ -20,20 +20,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/transactions")
 public class TransactionsController {
 
-  private TransactionService transactionService;
+    private TransactionService transactionService;
 
-  @GetMapping
-  @Operation(summary = "Get all transactions")
-  public ResponseEntity<List<Transaction>> getTransactions() {
-    log.debug("Get transactions request made");
-    return ResponseEntity.ok(transactionService.getTransactions());
-  }
+    @GetMapping
+    @Operation(summary = "Get all transactions")
+    public ResponseEntity<List<Transaction>> getTransactions() {
+        log.debug("Get transactions request made");
+        return ResponseEntity.ok(transactionService.getTransactions());
+    }
 
-  @PostMapping()
-  @Operation(summary = "Add a new transaction")
-  public ResponseEntity<Void> addTransaction(@RequestBody TransactionDTO transaction) {
-    log.debug("Transaction add request: {}", transaction);
-    transactionService.addTransaction(transaction);
-    return ResponseEntity.status(201).build();
-  }
+    @PostMapping()
+    @Operation(summary = "Add a new transaction")
+    public ResponseEntity<Void> addTransaction(@RequestBody TransactionDTO transaction) {
+        log.debug("Transaction add request: {}", transaction);
+        transactionService.addTransaction(transaction);
+        return ResponseEntity.status(201).build();
+    }
 }

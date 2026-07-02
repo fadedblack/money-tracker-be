@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class TransactionService {
 
-  private List<Transaction> transactions;
+    private List<Transaction> transactions;
 
-  public List<Transaction> getTransactions() {
-    return transactions;
-  }
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
 
-  public void addTransaction(TransactionDTO transaction) {
-    transactions.add(Transaction.from(transaction));
-  }
+    public void addTransaction(TransactionDTO transaction) {
+        transactions.add(Transaction.from(transaction));
+    }
 }

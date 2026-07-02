@@ -37,9 +37,13 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+tasks.named('build').configure {
+	dependsOn 'spotlessApply'
+}
+
 spotless {
 	java {
-		googleJavaFormat('1.27.0')
+		googleJavaFormat('1.27.0').aosp()
 		removeUnusedImports()
 		trimTrailingWhitespace()
 		endWithNewline()
