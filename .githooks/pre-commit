@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set-e
+set -e
 
 if grep -q "spotless" ./build.gradle 2>/dev/null; then
     echo "Running Spotless format check..."
