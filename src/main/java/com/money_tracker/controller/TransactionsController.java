@@ -36,4 +36,11 @@ public class TransactionsController {
         transactionService.addTransaction(transaction);
         return ResponseEntity.status(201).build();
     }
+
+    @GetMapping("/categories")
+    @Operation(summary = "Get all transaction categories")
+    public ResponseEntity<List<String>> getTransactionCategories() {
+        log.debug("Get transaction categories request made");
+        return ResponseEntity.ok(transactionService.getTransactionCategories());
+    }
 }

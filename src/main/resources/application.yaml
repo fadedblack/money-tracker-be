@@ -3,6 +3,7 @@ spring:
     name: money-tracker
 
 server:
+  port: 45227
   servlet:
     context-path: /money-tracker
 
